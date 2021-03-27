@@ -2,21 +2,13 @@
     <mat-toolbar-row>
         <div class="container">
             <div class="row between-xs middle-xs header-row">
-                <nav>
-                   
-                </nav>
-
-                
-
+                <nav>                   
+                </nav>     
                 <div>
-                    
                     <button mat-fab class="cart"  [matBadge]="total$ | async" matBadgeColor="warn">
                         <mat-icon>shopping_cart</mat-icon>
                       </button>
-                    
                 </div>
-                
-                
             </div>
         </div>
     </mat-toolbar-row>
@@ -24,16 +16,12 @@
         <div class="container">
             <div class="row between-xs middle-xs header-row">
                 <nav>
-
                 </nav>
                     <div  style="display:inline;" >
-                      
                         <input id="aramakutusu" size="40" type="text" placeholder="  Buscar " [formControl]="search"/>
                         <input id="aramabutonu" value="Buscar" type="button" [routerLink]="['/products/search', search.value]"/>
                     </div> 
                  <nav></nav>
-                
-                
             </div>
         </div>
     </mat-toolbar-row>

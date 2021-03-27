@@ -32,13 +32,10 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       const search = params.search;
       this.search(search);
-      // this.product = this.productsService.getProduct(id);
     });
   }
 
   clickProduct(id: number) {
-    console.log('product');
-    console.log(id);
   }
 
   fetchProducts(offset: number) {
