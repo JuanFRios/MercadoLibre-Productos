@@ -1,8 +1,13 @@
-<div class="product-grid">
-    <app-product
-      *ngFor="let product of products"
-      (productClicked)="clickProduct($event)"
-      [product]="product">
+<div>
+  <div class="product-grid">
+    <app-product *ngFor="let product of products" (productClicked)="clickProduct($event)" [product]="product">
     </app-product>
   </div>
-  
+  <mat-paginator *ngIf="products.length>1" #paginator [length]="totalItemsAvailable" [pageSizeOptions]="[30]" [pageIndex]="pageNumber"
+    (page)="onPaginateChange($event)" [hidePageSize]="false">
+  </mat-paginator>
+</div>
+
+<div *ngIf="products.length===0">
+  <app-loading></app-loading>
+</div>

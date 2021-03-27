@@ -1,89 +1,13 @@
-export interface Producto {
-    id: string;
-    name: string;
-    price: number;
-    description: string;
-    image: string;
+export interface Productos {
+    results: {id: string}[];
+    paging: Paging;
 }
 
-export interface Seller {
-    id: number;
-    permalink?: any;
-    registration_date?: any;
-    car_dealer: boolean;
-    real_estate_agency: boolean;
-    tags?: any;
-}
-
-export interface Conditions {
-    context_restrictions: any[];
-    start_time?: any;
-    end_time?: any;
-    eligible: boolean;
-}
-
-export interface Price {
-    id: string;
-    type: string;
-    conditions: Conditions;
-    amount: number;
-    regular_amount?: any;
-    currency_id: string;
-    exchange_rate_context: string;
-    last_updated: Date;
-}
-
-export interface Presentation {
-    display_currency: string;
-}
-
-export interface Prices {
-    id: string;
-    prices: Price[];
-    presentation: Presentation;
-    payment_method_prices: any[];
-    purchase_discounts: any[];
-}
-
-export interface Installments {
-    quantity: number;
-    amount: number;
-    rate: number;
-    currency_id: string;
-}
-
-export interface Address {
-    state_id: string;
-    state_name: string;
-    city_id: string;
-    city_name: string;
-}
-
-export interface Country {
-    id: string;
-    name: string;
-}
-
-export interface State {
-    id: string;
-    name: string;
-}
-
-export interface City {
-    id: string;
-    name: string;
-}
-
-export interface SellerAddress {
-    id: string;
-    comment: string;
-    address_line: string;
-    zip_code: string;
-    country: Country;
-    state: State;
-    city: City;
-    latitude: string;
-    longitude: string;
+export interface Paging {
+    total: number;
+    primary_results: number;
+    offset: number;
+    limit: number;
 }
 
 export interface ValueStruct {
@@ -100,20 +24,81 @@ export interface Value {
     id: string;
     name: string;
     struct: Struct;
-    source: number;
+}
+
+export interface SaleTerm {
+    id: string;
+    name: string;
+    value_id: string;
+    value_name: string;
+    value_struct: ValueStruct;
+    values: Value[];
+}
+
+export interface Picture {
+    id: string;
+    url: string;
+    secure_url: string;
+    size: string;
+    max_size: string;
+    quality: string;
 }
 
 export interface Product {
     id: string;
+    site_id: string;
     title: string;
-    seller: Seller;
+    subtitle?: any;
+    seller_id: number;
+    category_id: string;
+    official_store_id: number;
     price: number;
-    prices: Prices;
-    available_quantity: number;
-    condition: string;
-    thumbnail: string;
-    installments: Installments;
-    address: Address;
-    seller_address: SellerAddress;
+    base_price: number;
     original_price?: any;
+    currency_id: string;
+    initial_quantity: number;
+    available_quantity: number;
+    sold_quantity: number;
+    sale_terms: SaleTerm[];
+    buying_mode: string;
+    listing_type_id: string;
+    start_time: Date;
+    stop_time: Date;
+    condition: string;
+    permalink: string;
+    thumbnail_id: string;
+    thumbnail: string;
+    secure_thumbnail: string;
+    pictures: Picture[];
+    seller_address: SellerAddress;
+    warranty: string;
+    attributes: Attribute[];
+}
+
+export interface City {
+    id: string;
+    name: string;
+}
+
+export interface State {
+    id: string;
+    name: string;
+}
+
+export interface Country {
+    id: string;
+    name: string;
+}
+
+
+export interface SellerAddress{
+    city: City;
+    state: State;
+    country: Country;
+    id: number;
+}
+
+export interface Attribute {
+    name: string;
+    value_name: string;
 }

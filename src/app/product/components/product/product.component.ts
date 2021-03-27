@@ -18,7 +18,7 @@ import { CartService } from './../../../core/services/cart.service';
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
-  @Input() product!: Product;
+  @Input() product: Product;
   @Output() productClicked: EventEmitter<any> = new EventEmitter();
 
   today = new Date();

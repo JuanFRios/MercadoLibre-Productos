@@ -1,15 +1,47 @@
 <div *ngIf="product">
-    <div>
-      <img [src]="product.title" alt="">
+  <div class="card">
+    <div class="card__title">
+      <div class="icon">
+        <a href="#"><i class="fa fa-arrow-left"></i></a>
+      </div>
     </div>
-    <div>
-      <ul>
-        <li>Nombre: {{ product.title }}</li>
-        <li>Precio: {{ product.price | currency }}</li>
-      </ul>
-      <p>{{ product.address.state_name }}</p>
+    <div class="card__body">
+      <div class="half">
+
+        <div class="image">
+          <a [routerLink]="['/products', product.id]"> <img [src]="product.pictures[0].url" alt=""
+              style="align-self: center;"></a>
+        </div>
+      </div>
+      <div class="half">
+        <div class="featured_text">
+          <p class="price">{{product.title}}</p>
+          <br>
+          <h1>{{product.price | currency}} {{product.currency_id}}</h1>
+        </div>
+        <br>
+        <div class="recommend">
+          <p>{{product.warranty}}</p>
+        </div>
+        <span class="stock" *ngIf="product.available_quantity"><i class="fa fa-pen"></i> In stock</span>
+        <div *ngIf="product.attributes.length >8">
+          <p class="sub" *ngFor="let attribute of product.attributes|slice:0:8">-{{attribute.name}}:
+            {{attribute.value_name}}</p>
+        </div>
+        <div *ngIf="product.attributes.length <=8">
+          <p class="sub" *ngFor="let attribute of product.attributes">-{{attribute.name}}: {{attribute.value_name}}</p>
+        </div>
+
+      </div>
     </div>
-    <button (click)="createProduct()">crear</button>
-    <button (click)="updateProduct()">update</button>
-    <button (click)="deleteProduct()">delete</button>
+    <div class="card__footer">
+      <div class="recommend">
+        <p>{{product.seller_address.state.name}}</p>
+        <h3>{{product.seller_address.city.name}}</h3>
+      </div>
+      <div class="action">
+        <button type="button" (click)="addCart()">Add to cart</button>
+      </div>
+    </div>
   </div>
+</div>

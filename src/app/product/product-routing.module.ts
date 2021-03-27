@@ -10,6 +10,10 @@ const routes: Routes = [
     component: ProductsComponent
   },
   {
+    path: 'search/:search',
+    component: ProductsComponent
+  },
+  {
     path: ':id',
     component: ProductDetailComponent
   }

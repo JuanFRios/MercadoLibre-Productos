@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { ProductsService } from './../../../core/services/products/products.service';
 import { Product } from './../../../core/models/product.model';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,13 +11,14 @@ import { Product } from './../../../core/models/product.model';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-
+  
   product!: Product;
 
   constructor(
     private route: ActivatedRoute,
+    private cartService: CartService,
     private productsService: ProductsService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -33,19 +35,11 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  createProduct() {
-    
+  addCart() {
+    console.log('añadir al carrito');
+    this.cartService.addCart(this.product);
+    // this.productClicked.emit(this.product.id);
   }
 
-  updateProduct() {
-    
-  }
-
-  deleteProduct() {
-    this.productsService.deleteProduct('222')
-    .subscribe(rta => {
-      console.log(rta);
-    });
-  }
 
 }

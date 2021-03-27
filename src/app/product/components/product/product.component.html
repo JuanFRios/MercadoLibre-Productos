@@ -1,4 +1,4 @@
-<mat-card>
+<!-- <mat-card style="min-height: 500; min-width: 300;;">
   <mat-card-header>
     <mat-card-title>{{ product.title | uppercase }}</mat-card-title>
     <mat-card-subtitle>{{ product.price | currency }}</mat-card-subtitle>
@@ -7,10 +7,55 @@
     <img [src]="product.thumbnail" alt="">
   </div>
   <mat-card-content>
-    <p>{{ product.address.state_name | slice:0:10 }}</p>
+    <p>{{ 'product.address.state_name' | slice:0:10 }}</p>
   </mat-card-content>
   <mat-card-actions>
     <a mat-raised-button [routerLink]="['/products', product.id]">Ver detalle</a>
     <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+
+<div class="card">
+  <div class="card__title">
+    <span *ngIf="product.condition === 'new'" class="bg animated fadeInDown">NEW</span>
+    <h3>{{product.title}}</h3>
+  </div>
+  <div class="card__body">
+    <div class="half">
+      <!-- <div class="featured_text">
+        <h1>Nurton</h1>
+        <p class="sub">Office Chair</p>
+        <p class="price">$210.00</p>
+      </div> -->
+      <div class="image">
+       <a [routerLink]="['/products', product.id]"> <img [src]="product.pictures[0].url" alt=""></a>
+      </div>
+    </div>
+    <!-- <div class="half">
+      <div class="description">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam pariatur voluptate perferendis, asperiores aspernatur! Porro similique consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis esse numquam magni.</p>
+      </div>
+      <span class="stock"><i class="fa fa-pen"></i> In stock</span>
+      <div class="reviews">
+        <ul class="stars">
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star-o"></i></li>
+        </ul>
+        <span>(64 reviews)</span>
+      </div>
+    </div> -->
+  </div>
+  <div class="card__footer">
+    <div class="recommend">
+      <p>{{product.seller_address.state.name}}</p>
+      <h3>{{product.price |currency}}</h3>
+    </div>
+    <div class="action">
+      <button type="button" (click)="addCart()">Add to cart</button>
+    </div>
+  </div>
+</div>

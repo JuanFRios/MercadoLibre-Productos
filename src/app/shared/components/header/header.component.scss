@@ -12,5 +12,43 @@ nav > a.active {
 }
 
 .header-toolbar {
+    background-color: #115dd8;
     margin-bottom: 20px;
 }
+
+body{background:#ccc;}
+
+#aramabutonu {
+background:#0099ff;
+color:white;
+font: 'trebuchet ms', trebuchet;
+padding:10px 20px;
+border-radius:0 10px 10px 0;
+-moz-border-radius:0 10px 10px 0;
+-webkit-border-radius:0 10px 10px 0;
+-o-border-radius:0 10px 10px 0;
+border:0 none;
+font-weight:bold;
+  margin-left:-4px;
+}
+ 
+#aramakutusu {
+background: #eee;
+padding:10px;
+ border-radius:10px 0 0 10px;
+-moz-border-radius:10px 0 0 10px;
+-webkit-border-radius:10px 0 0 10px;
+-o-border-radius:10px 0 0 10px;
+border:0 none;
+width:160px;
+ }
+
+.cart {
+    background-color: white;
+    margin-left: 8px;
+}
+
+.cart mat-icon {
+    color: blue;
+}
+

@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { CartService } from './../../../core/services/cart.service';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  q ='';
+  search = new FormControl('');
   total$: Observable<number>;
 
   constructor(
